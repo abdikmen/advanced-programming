@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <script src="Database.js"></script>
+    
+    <title>Student Database </title>
+
+  <style>
+    .link {
+        color: blue;
+        cursor: pointer;
+        font-style: italic;
+    }
+    .course {
+        visibility: hidden;
+        font: 10px arial, sans-serif;
+        color: white;
+        background: blue;
+        cursor: text;
+        padding: 6px;
+        position: absolute;
+        height: 90px;
+        overflow-y: auto;
+    }
+    .link:hover .course { 
+        visibility: visible; 
+    }
+  </style>
+
+</head>
+
+<body>
+<h2 id=title></h2>
+
+<button onClick='a.randomStd()'>Random</button>
+<button onClick='out.innerText=""'>Clear</button>
+<button onClick='a.aboveGPA(x)'>Above</button>
+<button onClick='a.findCoursesStu(y)'>Find Courses by student</button>
+<button onClick='a.studentList(z)'>Student List by given course</button>
+<button onClick='a.givenRoom(q)'>Total number of courses in a given room </button>
+<button onClick='a.surveillanceList()'>surveillance list </button>
+<button onClick='a.examSchedule(y)'>Exam schedule </button>
+<button onClick='a.examRoom(q)'>Course list by room</button>
+
+<p>Student id: 
+<input type=number id='id' onChange="">
+</p>
+<p>Course code: 
+<input type=text id=code onChange="" value="">
+</p>
+<p>GPA: 
+<input type=number id=gp onChange="">
+</p>
+<p>Room: 
+<input type=text id=rm onChange="">
+</p>
+
+<p id=out onClick=''>Result:</p>
+
+
+<hr />
+<b>Sample code</b>
+<pre id=sample></pre>
+<hr />
+
+<script>
+    let a = new Database();
+    a.readStudent("Students.txt");
+    a.readCourse("Courses.txt");
+    x = document.getElementById("gp").value;
+    y = document.getElementById("id").value;
+    z = document.getElementById("code").value;
+    q = document.getElementById("rm").value;
+    
+</script>
+
+
+</body>
+</html>
