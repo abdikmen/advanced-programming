@@ -9,3 +9,4 @@ BLM305 Homeworks
 5. [CW#4](https://abdikmen.github.io/advanced-programming/index.html)
 6. [HW#2](https://abdikmen.github.io/advanced-programming/HW%232/Database.html)
 7. [CW#5](https://abdikmen.github.io/advanced-programming/read_local_file.html)
+8. [CW#6](https://abdikmen.github.io/advanced-programming/CW%236/CW%236.html)
