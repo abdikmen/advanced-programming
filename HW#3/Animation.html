@@ -1,0 +1,210 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Animation</title>
+ 
+ <style>
+
+    div.lunar {
+      display:inline-block;
+    }
+
+    p {
+      text-align:center;
+      color: white;
+    }
+
+    body {
+    	background-color: black;
+    }
+    div.sources {
+    	color: white;
+    }
+
+    .turn {
+  background-color: transparent;
+  width: 300px;
+  height: 200px;
+  perspective: 1000px; 
+}
+
+.middle {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+}
+
+.turn:hover .middle {
+  transform: rotateY(180deg);
+}
+
+.front, .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.front {
+  background-color: #bbb;
+  color: black;
+}
+
+.back {
+  color: white;
+  background-color: navy;
+  transform: rotateY(180deg);
+}
+
+
+
+  </style>
+
+</head>
+
+<body>
+
+	  <div class="lunar">
+    <div class="turn">
+  <div class="middle">
+    <div class="front">
+      <img src="apollo_patches/apollo11.jpg" height="200" width="300" />
+    </div>
+    <div class="back">
+      <h3>Neil Armstrong, Commander</h3>
+      <h3>Edwin E. Aldrin Jr., Lunar Module Pilot</h3> 
+      <h3>Michael Collins, Command Module Pilot</h3> 
+    </div>
+  </div>
+</div>
+  </div>
+  <div class="lunar">
+    <div class="turn">
+  <div class="middle">
+    <div class="front">
+      <img class="middle-img" src="apollo_patches/apollo12.jpg"/ height="200" width="300" />
+    </div>
+    <div class="back">
+      <h3>Charles Conrad Jr., Commander</h3>
+      <h3>Alan L. Bean, Lunar Module Pilot</h3> 
+      <h3>Richard F. Gordon Jr., Command Module Pilot</h3> 
+    </div>
+  </div>
+</div>
+  </div>
+
+  <div class="lunar">
+    <div class="turn">
+  <div class="middle">
+    <div class="front">
+      <img src="apollo_patches/apollo13.jpg"/ height="200" width="300" />
+    </div>
+    <div class="back">
+      <h3>John W. Young, Commander</h3>
+      <h3>Charles M. Duke Jr., Lunar Module Pilot</h3> 
+      <h3>John L. Swigert Jr., Command Module Pilot</h3> 
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="lunar">
+    <div class="turn">
+  <div class="middle">
+    <div class="front">
+      <img src="apollo_patches/apollo14.jpg"/ height="200" width="300" />
+    </div>
+    <div class="back">
+      <h3>Alan B. Shepard Jr., Commander</h3>
+      <h3>Edgar D. Mitchell, Lunar Module Pilot</h3> 
+      <h3>Stuart A. Roosa, Command Module Pilot</h3> 
+    </div>
+  </div>
+</div>
+</div>
+
+  <div class="lunar">
+    <div class="turn">
+  <div class="middle">
+    <div class="front">
+      <img class="middle-img" src="apollo_patches/apollo15.jpg"/ height="200" width="300" />
+    </div>
+    <div class="back">
+      <h3>David R. Scott, Commander</h3>
+      <h3>James B. Irwin, Lunar Module Pilot</h3> 
+      <h3>Alfred M. Worden, Command Module Pilot</h3> 
+    </div>
+  </div>
+</div>
+  </div>
+
+  <div class="lunar">
+    <div class="turn">
+  <div class="middle">
+    <div class="front">
+      <img class="middle-img" src="apollo_patches/apollo16.jpg"/ height="200" width="300" />
+    </div>
+    <div class="back">
+      <h3>John W. Young, Commander</h3>
+      <h3>Charles M. Duke Jr., Lunar Module Pilot</h3> 
+      <h3>Thomas K. Mattingly II, Command Module Pilot</h3> 
+    </div>
+  </div>
+</div>
+  </div>
+
+  <div class="lunar">
+    <div class="turn">
+  <div class="middle">
+    <div class="front">
+      <img src="apollo_patches/apollo17.jpg"/ height="200" width="300" />
+    </div>
+    <div class="back">
+      <h3>Eugene A. Cernan, Commander</h3>
+      <h3>Harrison H. Schmitt, Lunar Module Pilot</h3> 
+      <h3>Ronald E. Evans, Command Module Pilot</h3> 
+    </div>
+  </div>
+</div>
+  </div>
+
+<div class = "sources">
+  <h2>Sources:</h2>
+<ul>
+  <li id="a">https://www.nasa.gov/mission_pages/apollo/missions/apollo11.html</li>
+  <li id="b">https://www.nasa.gov/mission_pages/apollo/missions/apollo12.html</li>
+  <li id="c">https://www.nasa.gov/mission_pages/apollo/missions/apollo13.html</li>
+  <li id="d">https://www.nasa.gov/mission_pages/apollo/missions/apollo14.html</li>
+  <li id="e">https://www.nasa.gov/mission_pages/apollo/missions/apollo15.html</li>
+  <li id="f">https://www.nasa.gov/mission_pages/apollo/missions/apollo16.html</li>
+  <li id="g">https://www.nasa.gov/mission_pages/apollo/missions/apollo17.html</li>
+</ul>  
+</div>
+<script>
+
+	let time = {duration: 10000, iterations: Infinity}
+	
+	const t1 = { transform: ["translateX(0)", "translateX(450px)", "translateX(0)"] };
+	const t2 = { transform: ["translateX(450px)", "translateX(0)", "translateX(0)"] };
+	
+	a.animate(t1, time);
+	b.animate(t1, time);
+	c.animate(t1, time);
+	d.animate(t2, time)
+	e.animate(t2, time)
+	f.animate(t2, time)
+	g.animate(t2, time)
+
+
+	
+		
+
+
+</script>
+
+</body>
+</html>
