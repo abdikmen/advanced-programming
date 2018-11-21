@@ -5,9 +5,10 @@
   "background_color": "cyan",
   "icons": [
     {
-      "src": "JS.png",
+      "src": "CW7/JS.png",
       "sizes": "192x192",
       "type": "image/png"
     }
   ]
 }
+
