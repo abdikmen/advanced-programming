@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>TABLE..</title>
+    <table id="table" border="1">
+             <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>College</th>
+            </tr>
+    </table>
+
+<style>
+table, td, th {    
+    border: 1px solid #black;
+    text-align: right;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    padding: 30px;
+}
+</style>
+
+    <script type="text/javascript">
+
+      table = document.getElementById("table");
+    function makeRows(arr) {
+        for(var i = 0; i < arr.length; i++){
+           var newRow = table.insertRow(table.length);
+               for(var j = 0; j < arr[i].length; j++){
+                  var cell = newRow.insertCell(j);
+                  cell.innerHTML = arr[i][j];
+               }
+           }
+}
+
+</script>
+</head>
+<body>
+	<script type="text/javascript">
+		 
+
+    var array = [["Stephen Curry","30","Davidson"],
+  ["Kevin Durant","30","Texas"],
+  ["Klay Thompson","28","Washington State"],
+  ["Draymond Green","28","Michigan State"],
+  ["Andre Iguodala","34","Arizona"],
+  ["Shaun Livingston","33","-"],
+  ["Demarcus Cousins","28","Kentucky"],
+  ["Jacob Evans","21","Cincinnati"],
+  ["Quinn Cook","25","Duke"],
+  ["Kevon Looney","22","UCLA"]];
+
+
+
+makeRows(array);
+
+
+	</script>
+
+</body>
+</html>
