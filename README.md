@@ -11,4 +11,4 @@ BLM305 Homeworks
 7. [CW#5](https://abdikmen.github.io/advanced-programming/read_local_file.html)
 8. [CW#6](https://abdikmen.github.io/advanced-programming/CW%236/CW%236.html)
 9. [HW#3](https://abdikmen.github.io/advanced-programming/HW%233/Animation.html)
-10. [CW#7](https://abdikmen.github.io/advanced-programming/CW%237/cw7.html)
+10. [CW#7](https://abdikmen.github.io/advanced-programming/CW7/cw7.html)
