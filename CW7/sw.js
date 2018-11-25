@@ -9,7 +9,7 @@ function save(req, resp) {
   .then(cache => {
     cache.put(req, resp.clone());
     return resp;
-  })
+  }) 
   .catch(console.log)
 }
 function fetchCB(e) { //fetch first
