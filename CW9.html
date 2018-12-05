@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<!-- saved from url=(0051)https://maeyler.github.io/BLM305/work/Graphics.html -->
+<html lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width">
+    <title>SVG and Canvas </title>
+
+  <style>
+    svg, canvas {
+        background: cyan;
+        font: 10px arial, sans-serif;
+    }
+  </style>
+</head>
+
+<body style="">
+
+<h2>Using SVG</h2>
+<svg id='svg' width='540' height='100'>
+  <circle id='crc' cx='50' cy='50' r='40'
+  style='fill:yellow;stroke:blue;stroke-width:4' />
+  <text x='35' y='55' fill='black' id="cText">Circle</text>
+  <rect id='rc1' x='110' y='10' width='100' height='80'
+  style='fill:pink;stroke:red;stroke-width:5' />
+  <text x='145' y='55' fill='blue' id='rText'>Rect</text>
+    <rect id='rc2' x='310' y='10' width='100' height='80'
+  style='fill:yellow;stroke:red;stroke-width:5' />
+  <text x='330' y='55' fill='blue' id='rText2'>Rect 2</text>
+</svg>
+<p>SVG elements are controllable and scalable</p>
+<label for="colorWell">Color:</label>
+<input onChange="processdata()" type="color" value="#ff0000" id="colorWell">
+<label for="colorStroke"> Stroke :</label>
+<input onChange="processStroke()" type="color" value="#ff0000" id="colorStroke">
+<h2>Transform</h2>
+<p>Circle: 
+<input type=number onChange="move(crc,value)">
+</p>
+<p>Rectangle 1: 
+<input type=number onChange="Move(rc1,value)">
+</p>
+<p>Rectangle 2: 
+<input type=number onChange="Move(rc2,value)">
+</p>
+<p>
+<button onClick="crc.animate(t1, 5000)">Circle Transform</button>
+<button onClick="bigger(crc)">Make Circle Bigger</button>
+<button onClick="smaller(crc)">Make Circle Smaller</button>
+</p>
+<p>
+<p>Circle TXT:</p>
+<input onChange="changeTxt(cText, value)"></input>
+<p>Rectangle1 TXT:</p>
+<input onChange="changeTxt(rText, value)"></input>
+<p>Rectangle2 TXT:</p>
+<input onChange="changeTxt(rText2, value)"></input>
+</p>
+<script>
+  
+
+  const 
+  t1 = { transform: ["translateX(0)", "translateX(500px)", "translateX(0)"] }
+"use strict";
+var colorWell;
+var defaultColor = "#0000ff";
+
+window.addEventListener("load", startup, false);
+
+function processdata(){
+var circle11=document.getElementById('crc');
+var rect1=document.getElementById('rc1');
+var rect2=document.getElementById('rc2');
+var cv1 = document.getElementById('colorWell').value;
+circle11.style.fill=cv1;
+rect2.style.fill=cv1;
+rect1.style.fill=cv1;
+}
+function processStroke(){
+var circle11=document.getElementById('crc');
+var rect1=document.getElementById('rc1');
+var rect2=document.getElementById('rc2');
+var cv1 = document.getElementById('colorStroke').value;
+circle11.style.stroke=cv1;
+rect2.style.stroke=cv1;
+rect1.style.stroke=cv1;
+}
+
+function changeTxt(obj, value){
+  this.obj = obj;
+  this.value = value; 
+  obj.textContent = value;
+}
+
+function startup() {
+  colorWell = document.getElementById('colorWell');
+  colorWell.value = defaultColor;
+
+  colorWell.addEventListener("crc", updateFirst, false);
+  colorWell.addEventListener("crc", updateAll, false);
+  colorWell.select();
+}
+function updateFirst(event) {
+  var p = document.getElementById('crc');
+
+  if (p) {
+    p.style.fill = colorWell.value;
+  }
+}function updateAll(event) {
+  document.getElementById('crc').forEach(function(p) {
+    p.style.fill = event.target.value;
+  });
+}
+
+function move(x,v){
+  this.v=v;
+  this.x=x;
+  x.cx.baseVal.value=v;
+
+}
+function Move(x,v){
+  this.v=v;
+  this.x=x;
+  x.x.baseVal.value=v;
+
+}
+
+function bigger(obj){
+  this.obj=obj;
+  obj.r.baseVal.value=obj.r.baseVal.value*1.5;
+}
+function smaller(obj){
+  this.obj=obj;
+  obj.r.baseVal.value=obj.r.baseVal.value*0.5;
+
+}
+</script>
+
+</body></html>
