@@ -1,63 +1,185 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
     <meta name="author" content="Arif Burak Dikmen, 2018" />
     <meta name="description" content="BLM305 FSMV University" />
 </head>
 <style>
     
-    .matrix {
-        position: relative;
-    }
-    .matrix:first, .matrix:last {
-        content: "";
-        position: absolute;
-        top: 0;
-        border: 1px solid #000;
-        width: 6px;
-        height: 100%;
-    }
-    .matrix:first {
-        left: -6px;
-        border-right: 0;
-    }
-    .matrix:last {
-        right: -6px;
-        border-left: 0;
-    }
+#firstDiv {
+     width: 200px; 
+     height:200px; 
+     background-color: navy;
+     float : left;
+}
+#secondDiv {
+     width: 200px; 
+     height:200px; 
+     background-color: green;
+     float : left;
+} 
 
+#sumDiv {
+     width: 200px; 
+     height:200px; 
+     background-color: red;
+     float : left;
+} 
+
+#sources{
+    position:fixed;
+    top:30vh;
+}
 
 </style>
 <body>
 
-<div align=center>
-        <h1>matrix multiplication</h1>
+<h2 align=left>Matrix Operations</h2>
+
+<div class="entire-thing">
+
+    <div id="firstDiv">
     <table class="matrix">
         <tr>
-            <td><input type="text" style="width: 15px;"></td>
-            <td><input type="text" style="width: 15px;"></td>
+            <td><input id="00" type="text" style="width: 15px;"></td>
+            <td><input id="01" type="text" style="width: 15px;"></td>
+            <td><input id="02" type="text" style="width: 15px;"></td>
+
         </tr>
         <tr>
-           <td><input type="text" style="width: 15px;"></td>
-            <td><input type="text" style="width: 15px;"></td>
+           <td><input id="10" type="text" style="width: 15px;"></td>
+            <td><input id="11" type="text" style="width: 15px;"></td>
+            <td><input id="12" type="text" style="width: 15px;"></td>
         </tr>
         <tr>
-            <td><input type="text" style="width: 15px;"></td>
-            <td><input type="text" style="width: 15px;"></td>
+            <td><input id="20" type="text" style="width: 15px;"></td>
+            <td><input id="21" type="text" style="width: 15px;"></td>
+            <td><input id="22" type="text" style="width: 15px;"></td>
         </tr>
     </table>
-    <label for="myBrowser">Choose the dimension of the matrix:</label>
-<input list="browsers" id="myBrowser" name="myBrowser" />
-<datalist id="browsers">
-  <option value="2x2">
-  <option value="3x3">
-  <option value="4x4">
-  <option value="5x5">
-  <option value="6x6">
-  <option value="7x7">
-</datalist> </div>
+</div>
+
+<div id="secondDiv">
+<table class="matrix2">
+        <tr>
+            <td><input id="002" type="text" style="width: 15px;"></td>
+            <td><input id="012" type="text" style="width: 15px;"></td>
+            <td><input id="022" type="text" style="width: 15px;"></td>
+        </tr>
+        <tr>
+           <td><input id="102" type="text" style="width: 15px;"></td>
+            <td><input id="112" type="text" style="width: 15px;"></td>
+            <td><input id="122" type="text" style="width: 15px;"></td>
+        </tr>
+        <tr>
+            <td><input id="202" type="text" style="width: 15px;"></td>
+            <td><input id="212" type="text" style="width: 15px;"></td>
+            <td><input id="222" type="text" style="width: 15px;"></td>
+
+        </tr>
+    </table>
+    <button onclick="matrizenMultiplikation()">Multiply</button>
+</div>
+
+<div id="sumDiv">
+<table class="matrix3">
+        <tr>
+            <td><input id="00r" type="text" style="width: 30px;"></td>
+            <td><input id="01r" type="text" style="width: 30px;"></td>
+            <td><input id="02r" type="text" style="width: 30px;"></td>
+        </tr>
+        <tr>
+           <td><input id="10r" type="text" style="width: 30px;"></td>
+            <td><input id="11r" type="text" style="width: 30px;"></td>
+            <td><input id="12r" type="text" style="width: 30px;"></td>
+        </tr>
+        <tr>
+            <td><input id="20r" type="text" style="width: 30px;"></td>
+            <td><input id="21r" type="text" style="width: 30px;"></td>
+            <td><input id="22r" type="text" style="width: 30px;"></td>
+
+        </tr>
+    </table>
+        <button onclick="transponierte()">Transpose</button>
+
+</div>
+<div id="sources">
+<h2>Sources: </h2>
+
+<p><a href="https://www.geeksforgeeks.org/javascript-string-prototype-concat-function/">String Concat</a></p>
+<p><a href="http://www.technomark.in/How-To-Place-Two-Divs-Next-To-Each-Other-Using-CSS.aspx">CSS</a></p>
+<p><a href="https://stackoverflow.com/questions/966225/how-can-i-create-a-two-dimensional-array-in-javascript">2D Array</a></p>
+<p><a href="https://stackoverflow.com/questions/7470268/html-input-name-vs-id">HTML Input</a></p>
+<p><a href="https://stackoverflow.com/questions/27205018/multiply-2-matrices-in-javascript">Matrix Multiplication</a></p>
+<p><a href="https://stackoverflow.com/a/46805290">Matrix Transpose</a></p>
+</div>
+</div>  
+
+
+
+
+<script type="text/javascript">
+"use strict";
+
+function matrizenMultiplikation(){
+
+    var firstMat = [
+  [document.getElementById("00").value, document.getElementById("01").value, document.getElementById("02").value],
+  [document.getElementById("10").value, document.getElementById("11").value, document.getElementById("12").value],
+  [document.getElementById("20").value, document.getElementById("21").value, document.getElementById("22").value],
+];
+
+var secMat = [
+  [document.getElementById("002").value, document.getElementById("012").value, document.getElementById("022").value],
+  [document.getElementById("102").value, document.getElementById("112").value, document.getElementById("122").value],
+  [document.getElementById("202").value, document.getElementById("212").value, document.getElementById("222").value],
+];
+
+let sumMat = [];
+
+    for (var i = 0; i < firstMat.length; i++) {
+        sumMat[i] = [];
+        for (var j = 0; j < secMat[0].length; j++) {
+            var sum = 0;
+            for (var k = 0; k < firstMat[0].length; k++) {
+                sum += firstMat[i][k] * secMat[k][j];
+            }
+            sumMat[i][j] = sum;
+            var idx = "".concat(i,j,"r");
+            document.getElementById(idx).value = sum; 
+        }
+    }
+}
+
+
+
+function transponierte() {
+
+let lastMat = [
+  [document.getElementById("00r").value, document.getElementById("01r").value, document.getElementById("02r").value],
+  [document.getElementById("10r").value, document.getElementById("11r").value, document.getElementById("12r").value],
+  [document.getElementById("20r").value, document.getElementById("21r").value, document.getElementById("22r").value],
+];
+
+  const rows = lastMat.length, cols = lastMat[0].length;
+  const grid = [];
+  for (let j = 0; j < cols; j++) {
+    grid[j] = Array(rows);
+  }
+  for (let i = 0; i < rows; i++) {
+    for (let j = 0; j < cols; j++) {
+      grid[j][i] = lastMat[i][j];
+      var idy = "".concat(j,i,"r");
+      document.getElementById(idy).value = grid[j][i]; 
+    }
+  }
+  
+}
+</script>
 
 </body>
+
+
 </html>
