@@ -125,28 +125,7 @@
 <p><a href="http://blog.acipo.com/matrix-inversion-in-javascript/">Matrix Inversion</a></p>
 <p><a href="https://stackoverflow.com/q/41278390">Displaying Table as Matrix</a></p>
 <p><a href="https://www.w3schools.com/jsref/jsref_parseint.asp">Parse Int</a></p>
-</div>
-  <table border="1">
-          <tr>
-            <th><input id="00rr" type="text" style="width: 130px;"></th>
-            <td><input id="01rr" type="text" style="width: 130px;"></td>
-            <td><input id="02rr" type="text" style="width: 130px;"></td>
-            </tr>
-          <tr>
-            <th><input id="10rr" type="text" style="width: 130px;"></th>
-            <td><input id="11rr" type="text" style="width: 130px;"></td>
-            <td><input id="12rr" type="text" style="width: 130px;"></td>
-            </tr>
-            <tr>
-            <th><input id="20rr" type="text" style="width: 130px;"></th>
-            <td><input id="21rr" type="text" style="width: 130px;"></td>
-            <td><input id="22rr" type="text" style="width: 130px;"></td>
-            </tr>
-          </table>
-</div>
-
  
-
 <script type="text/javascript">
 "use strict";
 
@@ -322,9 +301,9 @@ function matrix_invert(){
 
     for (var i = 0; i < 3; i++) {
         for(var j=0; j < 3; j++){
-            var idx = "".concat(i,j,"rr");
-            document.getElementById(idx).value = I[i][j]; 
-            console.log("matris" +  I[i][j])
+            var idx = "".concat(i,j,"r");
+            let val = I[i][j];
+            document.getElementById(idx).value = val.toFixed(2); 
         }
     }
     
