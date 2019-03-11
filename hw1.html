@@ -30,7 +30,7 @@ Input<br><textarea rows='10' id=inp onKeyUp="checkRE()"></textarea>
 "use strict";
 function setValues() {
 inp.value = 'let longString = "This is a very long string which needs " \n+"to wrap across multiple lines because " \n+"otherwise my code is unreadable."\n';
-inp.value += "let countries = ['Turkey', 'Germany', 'Italy', 'United States'];\n let fruits = [\"Apple\", \"Banana\", \"Orange\"];\n let years = [1950, 1960, 1970, 1980, 1990, 2000, 2010];"
+inp.value += "let countries = ['Turkey', 'Germany', 'Italy', 'United States'];\n let fruits = ['Apple', 'Banana', 'Orange'];\n let years = [1950, 1960, 1970, 1980, 1990, 2000, 2010];"
 
     checkRE();
 }
