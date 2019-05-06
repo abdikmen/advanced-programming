@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="author" content="Arif Burak Dikmen, 2019" />
     <meta name="description" content="BLM320 FSMV University" />
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css"/>
 </head>
 <style>
 
@@ -32,22 +33,44 @@
 <div class="regex">
 <h3>Construction</h3>
 <p>Insert the expression:</p>
-<input type = "text" name = "Regex" value = "" maxlength = "100"/>
 </div>
 
-<div class="picture">
-<img src="dfa.png" alt="dfa_diagram">
+
+<div class="code">
+    <textarea id="repl_source" rows="5" spellcheck="false"></textarea>
+    <pre id="repl_results"></pre>
+    <br class="clear">
+</div>
+
+<div class="button"> 
+<button type="button" id="compile-dfa" href="#">Compile to DFA</button>
 </div>
 
 <div id="sources">
 <h2>Sources: </h2>
 
 <p><a href="http://shivankaul.com/blog/cstheory/compilers/2017/03/01/nfa-dfa-and-regexes.html">Regex and DFA Meanings</a></p>
-<p><a href="https://www.tutorialspoint.com/automata_theory/images/dfa_graphical_representation.jpg">DFA Graphic</a></p>
+<p><a href="http://hokein.github.io/Automata.js/">Regex to DFA</a></p>
 
-<script type="text/javascript">
-"use strict";
 
+<script src="regparser-browser.js"></script>
+<script src="viz.js"></script>
+<script>
+   var regParser = require('regparser');
+    var parser = new regParser.RegParser();
+    document.getElementById("compile-dfa").addEventListener("click", function (e) {
+      var input = document.getElementById("repl_source").value;
+      parser.reset(input);
+      try {
+        var nfa = parser.parseToDFA();
+        var result = Viz(nfa.toDotScript(), 'svg', 'dot');
+        document.getElementById("repl_results").className = "";
+        document.getElementById("repl_results").innerHTML = result;
+      } catch(e) {
+        document.getElementById("repl_results").className = "error";
+        document.getElementById("repl_results").innerHTML = e;
+      }
+    });
 </script>
 
 </body>
