@@ -28,6 +28,14 @@
 
 <h3>What is Regex and what they do?</h3>
 <p>Regular expressions are a way of expressing regular languages. In fact, the basic operation of a regex engine is to convert a regex pattern to either an NFA or DFA internally. Then, faced with a string, the N/DFA reads the symbols one by one and transitions between its states and finally spits out if the string of symbols matches the pattern/language or not.</p>
+
+<table id="table" border="1">
+             <tr>
+                <th>Expression</th>
+                <th>Meaning</th>
+            </tr>
+    </table>
+
 </div>
 
 <div class="regex">
@@ -37,7 +45,7 @@
 
 
 <div class="code">
-    <textarea id="repl_source" rows="5" spellcheck="false"></textarea>
+    <textarea id="repl_source" rows="5" spellcheck="false"'></textarea>
     <pre id="repl_results"></pre>
     <br class="clear">
 </div>
@@ -71,6 +79,32 @@
         document.getElementById("repl_results").innerHTML = e;
       }
     });
+
+  table = document.getElementById("table");
+    function makeRows(arr) {
+        for(var i = 0; i < arr.length; i++){
+           var newRow = table.insertRow(table.length);
+               for(var j = 0; j < arr[i].length; j++){
+                  var cell = newRow.insertCell(j);
+                  cell.innerHTML = arr[i][j];
+               }
+           }
+}
+
+	 
+
+    var array = [["n+","Match at least one n"],
+  ["n*","Match zero or more n's"],
+  ["n?","Match zero or one n"],
+  ["()","Capture anything enclosed"]];
+
+
+
+makeRows(array);
+
+document.getElementById("repl_source").value = "(1+0)*";
+
+
 </script>
 
 </body>
